@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "modelipy"
+dynamic = ["version"]
+authors = [
+    {name = "Jonas Kock am Brink", email = "jokabrink@posteo.de"},
+]
+description = "A library for creating Modelica files from Python"
+readme = "README.md"
+requires-python = ">=3.7"
+keywords = ["modelica", "dymola", "openmodelica"]
+license = {file = "LICENSE"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Utilities",
+]
+
+[project.urls]
+Repository = "https://github.com/jokabrink/modelipy"
+
+[tool.setuptools]
+packages = ["modelipy"]
+dynamic = {version = {attr = "modelipy.__version__" } }
+
+[tool.black]
+line-length = 100
+
+[tool.flake8]
+max-line-length = 100
+
+[tool.mypy]
+python_version = "3.11"
+check_untyped_defs = true
+disallow_any_generics = true
+disallow_incomplete_defs = true
+disallow_untyped_defs = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+
+[tool.coverage.run]
+branch = true
+plugins = "covdefaults"
